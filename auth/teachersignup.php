@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <?php
+    require_once '../server/Config/initialise.php';
+    require_once 'generalinc/csslogin.php' ?>
+    <title>TIS :: TEACHER SIGN UP</title>
+</head>
+
+<body>
+    <div class="form-body">
+        <div class="row">
+            <div class="img-holder">
+                <div class="bg"></div>
+                <div class="info-holder">
+                    <h3>Become a teacher on T-IT school.</h3>
+                    <p>TIS is a school management software which combines more school related activities in one powerful and reliable tool which helps in management of school related activities anytime ,anywhere<br>
+                </div>
+            </div>
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <h3>Start teaching on T-IT Now !</h3>
+                        <p>Enter your information here to start</p>
+                        <form method="POST" id="studentRegister">
+                            <div id="errorStudentsignup"></div>
+                            <input class="form-control" type="text" name="tit_names" placeholder="Full names">
+                            <input class="form-control" type="email" name="tit_email" placeholder="E-mail Address">
+                            <input class="form-control" type="date" max="2000-12-31" name="tit_dob" placeholder="Date of birth">
+                            <div class="form-group">
+                                <select name="tit_sex" class="form-control">
+                                    <option selected disabled>Choose gender</option>
+                                    <?php
+
+                                    #select School Manager type
+                                    $genderSelector = select('*', 'tit_gender', "ge_status='1'");
+                                    foreach ($genderSelector as $instRow) {
+                                        $genderId   = $instRow['ge_id'];
+                                        $genderName = $instRow['ge_name'];
+
+
+                                        echo "<option value=" . $genderId . ">" . $genderName; ?></option>
+                                        ?>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select name="tit_course" class="form-control">
+                                    <option selected disabled>Which course do you want to teach?</option>
+                                    <?php
+
+                                    #select School Manager type
+                                    $courseSelector = select('*', 'tit_courses', "cou_status='1'");
+                                    foreach ($courseSelector as $courseRow) {
+                                        $courseId   = $courseRow['cou_id'];
+                                        $courseName = $courseRow['cou_title'];
+
+
+                                        echo "<option value=" . $courseId . ">" . $courseName; ?></option>
+                                        ?>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <div class="form-button">
+                                <button id="saveLogin" type="submit" name="Loginuser" class="ibtn">Apply Now</button> | or <a href="./">Sign in here</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/login/js/jquery.min.js"></script>
+    <script src="../inc/js/validation.min.js"></script>
+    <script src="generalinc/js/newTeacher.js"></script>
+</body>
+
+</html>
