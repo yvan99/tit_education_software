@@ -1,0 +1,32 @@
+{
+  "name": "ivan/tit_school",
+  "description": "tit school education software",
+  "license": "mit",
+  "authors": [
+    {
+      "name": "yvan99",
+      "email": "ishimweyvan90@gmail.com"
+    }
+  ],
+  "require": {
+    "divineomega/dotenv-loader": "^2.0",
+    "phpmailer/phpmailer": "^6.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Server\\Models\\": "server/Models",
+      "Server\\Controllers\\": "server/Controllers",
+      "Server\\Helpers\\": "server/Helpers"
+    },
+    "files": [
+      "server/Helpers/Queries.php",
+      "server/Helpers/FormSanitizer.php",
+      "server/Helpers/CodeGenerator.php",
+      "server/Helpers/hashinghandler.php",
+      "server/Helpers/urlhandling.php",
+      "server/Helpers/pagesettings.php",
+      "server/Helpers/mailer.php",
+      "server/Helpers/sessionhandler.php"
+    ]
+  }
+}
